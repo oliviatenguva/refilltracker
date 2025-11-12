@@ -58,10 +58,10 @@ Refill Tracker streamlines image collection from field users to monitor water re
 Refill Tracker addresses a real-world need for UVA students that does not exist in the UVA environment currently. Many needs are addressed, such as advising, food, mental well-being, but a simple need of hydration is overlooked. Refill Tracker is a simle and easy way for students to keep up healthy hydration. 
 
 ### Alternatives: Why not chosen
-Full CMS (e.g. Wordpress): too ehavy for single-purpose field data collection tool
-REST API + React front end: deployment more complex, flask sufficient for scale and simplicity
-AWS S3: Azure Blob Storage integrates directly with App Service and provides free student-tier credits
-Authentication System: unnecessary for target audience, priority is easy public access
+- Full CMS (e.g. Wordpress): too heavy for single-purpose field data collection tool
+- REST API + React front end: deployment more complex, flask sufficient for scale and simplicity
+- AWS S3: Azure Blob Storage integrates directly with App - Service and provides free student-tier credits
+- Authentication System: unnecessary for target audience, priority is easy public access
 
 ### Tradeoffs
 | Area                | Decision                                          | Tradeoff                                                                        |
@@ -73,45 +73,45 @@ Authentication System: unnecessary for target audience, priority is easy public 
 
 ### Security & Privacy
 
-Secrets Management: Azure connection string and account string are stored in .env and loaded using python-dotenv. This usees Azure App settings instead of hardcoding secrets.
+**Secrets Management**: Azure connection string and account string are stored in .env and loaded using python-dotenv. This usees Azure App settings instead of hardcoding secrets.
 
-Input Validation: Upload route checks image type and extenstion. The image sizes are sanitized as well with werkzeug.utils.secure_filename().
+**Input Validation**: Upload route checks image type and extenstion. The image sizes are sanitized as well with werkzeug.utils.secure_filename().
 
-PII Handling: No personal data is stored or processed. Only the image files and public URLs are managed. 
+**PII Handling**: No personal data is stored or processed. Only the image files and public URLs are managed. 
 
 ### Ops
 
-Logs: Flask logs requests and uploads activity (viewed in Azure App Service log stream).
+**Logs**: Flask logs requests and uploads activity (viewed in Azure App Service log stream).
 
-Scaling: App Service Plan (B1) supports vertical scaling if it is needed and the stateless Flask design allows for easy horizontal scaling. 
+**Scaling**: App Service Plan (B1) supports vertical scaling if it is needed and the stateless Flask design allows for easy horizontal scaling. 
 
-Known Limitations: no image resizing or prevention of dulicates, public container means URLs are visible, upload rate is limited by the App Service
+**Known Limitations**: no image resizing or prevention of dulicates, public container means URLs are visible, upload rate is limited by the App Service
 
 ## 5) Results
-Web App and Gallery View with Uploaded Images Run with Docker:
+**Web App and Gallery View with Uploaded Images Run with Docker**:
 ![Website Successful](assets/waterweb.png)
-Check for file:
+**Check for file (empty file upload)**:
 ![Empty File Upload](assets/emptyfile.png)
-Gallery Check:
+**Gallery Check**:
 ![Gallery](assets/gallery.png)
-Health Check:
+**Health Check**:
 ![Health](assets/health.png)
 
 ### Performance Notes
-Startup time: ~5-7 seconds
-Upload latency: ~1-2 seconds for a 2 MB image
-Storage: Azure Blob Storage (public-read container refill-images)
+- Startup time: ~5-7 seconds
+- Upload latency: ~1-2 seconds for a 2 MB image
+- Storage: Azure Blob Storage (public-read container refill-images)
 
 ### 7) What's Next
--Add metadata (timestamps, GPS coordinates) from image data
--Generate thumbnails to improve gallery view
--Add optional authentication for verified users
--Implement limitations regarding rate to prevent spam uploading
--Encrypt image metadata
--Add a search or filter feature (by date, relative locations)
--Add categories of water stations (water fountain, automatic dispenser, etc.)
+- Add metadata (timestamps, GPS coordinates) from image data
+- Generate thumbnails to improve gallery view
+- Add optional authentication for verified users
+- Implement limitations regarding rate to prevent spam uploading
+- Encrypt image metadata
+- Add a search or filter feature (by date, relative locations)
+- Add categories of water stations (water fountain, automatic dispenser, etc.)
 
 ### Links
-GitHub Repo: https://github.com/oliviatenguva/refilltracker
-Azure Web App: https://refilltracker-app.azurewebsites.net
-Service URL: https://refill-tracker-app.azurewebsites.net
+1. GitHub Repo: https://github.com/oliviatenguva/refilltracker
+2. Azure Web App: https://refilltracker-app.azurewebsites.net
+3. Service URL: https://refill-tracker-app.azurewebsites.net
