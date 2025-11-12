@@ -15,7 +15,7 @@ Refill Tracker is a web app that lets users upload photos of refill stations and
 
 ## 2) System Overview
 
-**Course Concept(s):**
+**Course Concepts:**
 - Flask API
 - Azure Blob Storage integration
 - Containerization with Docker
@@ -103,11 +103,15 @@ Upload latency: ~1-2 seconds for a 2 MB image
 Storage: Azure Blob Storage (public-read container refill-images)
 
 ### 7) What's Next
-Add GPS metadata to enhance location
-
-Add categories of stations in similar areas
+-Add metadata (timestamps, GPS coordinates) from image data
+-Generate thumbnails to improve gallery view
+-Add optional authentication for verified users
+-Implement limitations regarding rate to prevent spam uploading
+-Encrypt image metadata
+-Add a search or filter feature (by date, relative locations)
+-Add categories of water stations (water fountain, automatic dispenser, etc.)
 
 ### Links
-GitHub Repo: https://github.com/oliviatenguva/refill-tracker
+GitHub Repo: https://github.com/oliviatenguva/refilltracker
 Azure Web App: https://refilltracker-app.azurewebsites.net
 Service URL: https://refill-tracker-app.azurewebsites.net
