@@ -21,7 +21,7 @@ Refill Tracker is a web app that lets users upload photos of refill stations and
 - Containerization with Docker
 
 ### Architecture Diagram
-![Architecture Diagram](assets/architecture.png)
+![Architecture Diagram](assets/architect.png)
 
 ### Data/Services
 | Component | Description |
